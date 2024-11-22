@@ -1,11 +1,14 @@
 import sys
 
-if len(sys.argv) < 4:
+def display_help():
     print('Please enter the following commands to manipulate files: reverse, copy, duplicate-contents, or replace-string.')
     print('If you enter "python3 file_manipulator.py reverse <input file path> <output file path>", the command reverses the contents of the input file.')
     print('If you enter "python3 file_manipulator.py copy <input file path> <output file path>", the command copies the input file as the output file.')
     print('If you enter "python3 file_manipulator.py duplicate-contents <input file path> n", the command leads the contents of the input file to duplicate it and write it n times to the input file.')
     print('If you enter "python3 file_manipulator.py replace-string <input file path> <needle> <new_string>", the command searches the string you specified with <needle> from the input file to replace all of <needle> into <new_string>.')
+
+if len(sys.argv) < 4:
+    display_help()
 
 else:
     command = sys.argv[1]
@@ -59,11 +62,7 @@ else:
             file.write(contents.replace(sys.argv[3], sys.argv[4]))
 
     else:
-        print('Please enter the following commands to manipulate files: reverse, copy, duplicate-contents, or replace-string.')
-        print('If you enter "python3 file_manipulator.py reverse <input file path> <output file path>", the command reverses the contents of the input file.')
-        print('If you enter "python3 file_manipulator.py copy <input file path> <output file path>", the command copies the input file as the output file.')
-        print('If you enter "python3 file_manipulator.py duplicate-contents <input file path> n", the command leads the contents of the input file to duplicate it and write it n times to the input file.')
-        print('If you enter "python3 file_manipulator.py replace-string <input file path> <needle> <new_string>", the command searches the string you specified with <needle> from the input file to replace all of <needle> into <new_string>.')
+        display_help()
         sys.exit(1)
 
     print('The file has been manipulated successfully.')

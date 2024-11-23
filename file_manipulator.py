@@ -9,6 +9,7 @@ def display_help():
 
 if len(sys.argv) < 4:
     display_help()
+    sys.exit(1)
 
 else:
     command = sys.argv[1]
@@ -66,5 +67,4 @@ else:
         sys.exit(1)
 
     print('The file has been manipulated successfully.')
-
-sys.exit(1)
+    sys.exit(0)
